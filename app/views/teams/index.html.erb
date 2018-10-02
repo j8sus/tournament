@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Teams</h4>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= render @teams %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <%= link_to 'Add team', new_team_path, class: 'btn btn-success' %>
+  <%= link_to 'Generate 16 fake teams', create_fake_teams_path, method: :post, class: 'btn btn-primary' %>
+</div>

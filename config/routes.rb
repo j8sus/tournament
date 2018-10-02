@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'tournaments#index'
+
+  delete 'erase_db', to: 'erase#erase'
+
+  resources :teams do
+    post :create_fake, on: :collection
+  end
+
+  resources :tournaments do
+    resources :rounds do
+      resources :games
+    end
+  end
 end
