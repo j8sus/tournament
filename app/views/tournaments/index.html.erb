@@ -1,101 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <h4>Group A</h4>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-
-      <h4>Group B</h4>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <h4>1/8</h4>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-info">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-info">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-warning">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-warning">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-danger">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-danger">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <h4>1/4</h4>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-info">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-info">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <h4>1/2</h4>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-    </div>
+    <h2>Tournaments</h2>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @tournaments %>
+      </tbody>
+    </table>
   </div>
-</div>
 
+  <%= link_to 'Add tournament', new_tournament_path, class: 'btn btn-success' %>
+  <%= link_to 'Generate tournament', create_fake_tournaments_path, method: :post, class: 'btn btn-primary' %>
+</div>

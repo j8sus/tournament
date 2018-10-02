@@ -1,0 +1,8 @@
+<tr>
+  <td><%= tournament.id %></td>
+  <td><%= tournament.title %></td>
+  <td>
+    <%= link_to 'Tournament', tournament_path(tournament), class: 'btn btn-success' %>
+    <%= link_to 'Delete', tournament_path(tournament), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

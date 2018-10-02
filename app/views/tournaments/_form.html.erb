@@ -1,0 +1,8 @@
+<%= bootstrap_form_for(@tournament) do |f| %>
+  <%= f.text_field :title %>
+
+  <h3>Select teams:</h3>
+  <%= f.collection_check_boxes :team_ids, Team.all, :id, :title, checked: @tournament.teams, skip_label: true %>
+
+  <%= f.submit 'Create' %>
+<% end %>

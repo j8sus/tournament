@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   resources :tournaments do
+    post :create_fake, on: :collection
+
     resources :rounds do
       resources :games
     end
