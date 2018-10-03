@@ -2,100 +2,31 @@
   <div class="row">
     <div class="col-md-3">
       <h4>Group A</h4>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-
+      <%= render partial: 'rounds/group_round', collection: @tournament.group_a, as: :round %>
+      <% if @tournament.group_a.empty? %>
+        <%= link_to 'Generate group A result', generate_result_tournament_rounds_path(@tournament, round_type: :group_a), method: :post, class: 'btn btn-success' %>
+      <% end %>
       <h4>Group B</h4>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-3">
-      <h4>1/8</h4>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-info">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-info">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-warning">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-warning">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-danger">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-danger">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
+      <%= render partial: 'rounds/group_round', collection: @tournament.group_b, as: :round %>
+      <% if @tournament.group_b.empty? && !@tournament.group_a.empty? %>
+        <%= link_to 'Generate group B result', generate_result_tournament_rounds_path(@tournament, round_type: :group_b), method: :post, class: 'btn btn-success' %>
+      <% end %>
     </div>
     <div class="col-md-3">
       <h4>1/4</h4>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-info">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-info">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
+      <%= render partial: 'rounds/play_off', collection: @tournament.play_off_1_4, as: :round %>
     </div>
     <div class="col-md-3">
       <h4>1/2</h4>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-        <li class="list-group-item list-group-item-success">
-          <span class="badge">14</span>
-          Cras justo odio
-        </li>
-      </ul>
+      <%= render partial: 'rounds/play_off', collection: @tournament.play_off_1_2, as: :round %>
+
+      <% if @tournament.play_off_1_4.empty? && !@tournament.group_a.empty? && !@tournament.group_b.empty? %>
+        <%= link_to 'Generate Play-Off result', generate_result_tournament_rounds_path(@tournament, round_type: :play_off), method: :post, class: 'btn btn-success' %>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <h4>Final</h4>
+      <%= render partial: 'rounds/play_off', collection: @tournament.play_off_final, as: :round %>
     </div>
   </div>
 </div>
-

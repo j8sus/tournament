@@ -1,0 +1,6 @@
+<ul class="list-group">
+  <% teams = Team.where(id: round.teams_ids) %>
+  <% teams.each do |team| %>
+    <%= render 'rounds/team', team: team, wins: round.games.where(winner: team.id).count %>
+  <% end %>
+</ul>

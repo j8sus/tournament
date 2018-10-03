@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     post :create_fake, on: :collection
 
     resources :rounds do
+      post :generate_result, on: :collection
+
       resources :games
     end
   end
