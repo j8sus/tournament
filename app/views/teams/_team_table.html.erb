@@ -1,0 +1,7 @@
+<tr>
+  <td><%= team.id %></td>
+  <td><%= team.title %></td>
+  <td>
+    <%= link_to 'Delete', team_path(team), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

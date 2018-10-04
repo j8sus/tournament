@@ -1,0 +1,7 @@
+<% if round.round_type == 'group' %>
+  <%= render partial: 'rounds/group_round', locals: { round: round } %>
+<% end %>
+
+<% if round.round_type == 'play_off' %>
+  <%= render partial: 'rounds/play_off', locals: { round: round } %>
+<% end %>

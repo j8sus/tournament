@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    if Team.create(team_params)
+    if Team.create!(team_params)
       redirect_to teams_path
     else
       render :new
@@ -21,14 +21,6 @@ class TeamsController < ApplicationController
     if @team.destroy
       redirect_to teams_path
     end
-  end
-
-  def create_fake
-    16.times do
-      Team.create(title: Faker::Team.name)
-    end
-
-    redirect_to teams_path
   end
 
   private

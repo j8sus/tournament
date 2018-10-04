@@ -31,3 +31,4 @@
 
 en:
   hello: "Hello world"
+  necessary_teams_count: "Select %{count} teams"

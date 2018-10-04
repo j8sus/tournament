@@ -1,12 +1,16 @@
-<% round.games.each do |game| %>
-  <ul class="list-group">
-    <li class="list-group-item list-group-item-<%= 'success' if game.team_a_won? %>">
-      <span class="badge"><%= game.score.split('/').first %></span>
-      <%= game.teams.first.title %>
-    </li>
-    <li class="list-group-item list-group-item-<%= 'success' if game.team_b_won? %>">
-      <span class="badge"><%= game.score.split('/').last %></span>
-      <%= game.teams.last.title %>
-    </li>
-  </ul>
-<% end %>
+<div class="col-md-3">
+  <h4><%= "1/#{round.games.count}" %></h4>
+  <% round.games.each do |game| %>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-<%= 'success' if game.team_a_won? %>">
+        <span class="badge"><%= game.score.split('/').first %></span>
+        <%= game.team_a_fullname %>
+      </li>
+
+      <li class="list-group-item list-group-item-<%= 'success' if game.team_b_won? %>">
+        <span class="badge"><%= game.score.split('/').last %></span>
+        <%= game.team_b_fullname %>
+      </li>
+    </ul>
+  <% end %>
+</div>

@@ -11,12 +11,12 @@
         </tr>
         </thead>
         <tbody>
-        <%= render @teams %>
+          <%= render partial: 'teams/team_table', collection: @teams, as: :team %>
         </tbody>
       </table>
     </div>
   </div>
 
   <%= link_to 'Add team', new_team_path, class: 'btn btn-success' %>
-  <%= link_to 'Generate 16 fake teams', create_fake_teams_path, method: :post, class: 'btn btn-primary' %>
+  <%= link_to 'Generate 16 fake teams', fake_teams_path, method: :post, class: 'btn btn-primary' %>
 </div>

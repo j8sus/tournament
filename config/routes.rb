@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
   root 'tournaments#index'
 
-  delete 'erase_db', to: 'erase#erase'
+  delete 'annihilate', to: 'annihilation#delete'
 
-  resources :teams do
-    post :create_fake, on: :collection
-  end
 
+  resources :fake_teams, only: :create
+  resources :fake_tournaments, only: :create
+
+
+  resources :teams
   resources :tournaments do
-    post :create_fake, on: :collection
+    resources :groups, only: :create
+    resources :playoffs, only: :create
 
-    resources :rounds do
-      post :generate_result, on: :collection
-
+    namespace :rounds do
       resources :games
     end
   end
+
 end

@@ -1,7 +1,4 @@
-<tr>
-  <td><%= team.id %></td>
-  <td><%= team.title %></td>
-  <td>
-    <%= link_to 'Delete', team_path(team), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
-  </td>
-</tr>
+<li class="list-group-item list-group-item-<%= 'success' unless flew_out %>">
+  <span class="badge"><%= team.round_wins_count(round_id) %></span>
+  <%= team.fullname %>
+</li>

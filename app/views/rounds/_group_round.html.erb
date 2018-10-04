@@ -1,6 +1,8 @@
+<h4>Group <%= letter_by_position(round.position) %></h4>
 <ul class="list-group">
-  <% teams = Team.where(id: round.teams_ids) %>
-  <% teams.each do |team| %>
-    <%= render 'rounds/team', team: team, wins: round.games.where(winner: team.id).count %>
+  <% teams = round.teams.sort_by { |team| team.round_wins_count(round.id) }.reverse %>
+
+  <% teams.each_with_index do |team, index| %>
+    <%= render partial: 'teams/team', locals: { team: team, round_id: round.id, flew_out: flew_out?(index, teams.count) } %>
   <% end %>
 </ul>
