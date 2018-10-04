@@ -32,6 +32,6 @@ class TournamentsController < ApplicationController
   private
 
   def tournament_params
-    params.require(:tournament).permit(:title, :team_ids)
+    params.require(:tournament).permit(:title, team_ids: [])
   end
 end

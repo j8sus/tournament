@@ -5,7 +5,7 @@ class Tournament < ApplicationRecord
   validate :validate_teams
 
   def validate_teams
-    errors.add(:team_ids, I18n.t('necessary_teams_count', count: 16)) if teams.size != 16
+    errors.add(:team_ids, I18n.t('necessary_teams_count', count: 16)) if team_ids.size != 16
   end
 
   def group_stage

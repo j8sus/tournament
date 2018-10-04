@@ -1,24 +1,21 @@
-# README
+### Demo server
+https://rails-tournament.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Требования:
 
-Things you may want to cover:
+- Ruby 2.4.4
+- PostgreSQL 9.6+
+  - `brew install postgresql` (Mac OS)
+  - `sudo apt-get install postgresql postgresql-contrib` (Linux)
+  - `psql postgres` (Mac OS)
+  - `sudo -u postgres psql` (Linux)
+  - `createuser -s postgres`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Установка
+- Установить гемы
+  - `gem install bundler`
+  - `bundle install`
+- Задать юзера и пароль для postgresql в `database.yml`
+- Загрузить базу
+  - `rails db:setup`
+- Запуск для проверки: `rails s`
